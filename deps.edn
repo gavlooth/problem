@@ -1,0 +1,16 @@
+{:paths ["src"]
+ :deps  {dev.langchain4j/langchain4j {:mvn/version "0.36.2"}
+         dev.langchain4j/langchain4j-open-ai {:mvn/version "1.0.0-alpha1"}
+         org.clojure/java.data {:mvn/version "1.2.107"}}
+ :aliases 
+ {:neil {:project {:name problem/problem}}
+  :dev {:extra-paths ["dev"] ;; dev/user.clj starts the repl
+        :jdk-17 {:jvm-opts ["--add-modules" "jdk.incubator.foreign" "--enable-native-access=ALL-UNNAMED"]}
+        :extra-deps {nrepl/nrepl       {:mvn/version "LATEST"}
+                     cider/cider-nrepl {:mvn/version "LATEST"}}}
+  :repl/cider {:extra-deps {nrepl/nrepl       {:mvn/version "LATEST"}
+                            cider/cider-nrepl {:mvn/version "LATEST"}}
+               :main-opts  ["-m" "nrepl.cmdline"
+                            "--middleware" "[cider.nrepl/cider-middleware]"
+                            "--interactive"]}}}
+
