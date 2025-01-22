@@ -17,4 +17,3 @@
  (try 
   (make-chat-model)
   (catch Throwable t (println t))))
-(-main)
